@@ -1,0 +1,32 @@
+my_sys 里调用的库函数，除了 my_open()::open， 其他的没有统计
+os0file 里面一共 26 个库函数（人工找的，可能不止），下面结果多出来的一个是 my_open()::open。
+结果为 1 表示没有调用，实际上 pread、pwrite、fsync，是调用了的，但是日志打印会导致 mysqld 进程出错，就没打出来。
+
+putc 1
+posix_fadvise 1
+fread 1
+rmdir 1
+fprintf 1
+fputs 1
+rewind 1
+pwrite 1        # 用到了，实际不止 1
+closedir 1
+statvfs 1
+fsync 1         # 用到了，实际不止 1
+sendfile 1
+pread 1         # 用到了，实际不止 1
+rename 2
+mkdir 3
+ftruncate 4
+opendir 8
+fdopen 11
+my_open()::open 23
+unlink 27
+fallocate 63
+fcntl 102
+close 114
+open 115
+my_create()::open 118
+readdir 161
+stat 580
+lseek 1141

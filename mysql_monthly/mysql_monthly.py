@@ -62,6 +62,8 @@ for i in month_dict:
 # print(all_dict)
 
 for i in all_dict:
-    if('log' in i):
+    # if('log' in i):
+    # if('临时表那些事儿' in i):
+    if('runcate undo log' in i):
         print(all_dict[i], end='')
         print('   ' + i)
